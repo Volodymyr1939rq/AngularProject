@@ -1,0 +1,13 @@
+<section>
+  <h1>Job Experience</h1>
+  <ul>
+    <li *ngFor="let exp of experiences">
+    <div>
+      <span>{{exp.date}}</span>
+      <h2>{{exp.title}}</h2>
+      <p>{{exp.company}}-{{exp.location}}</p>
+      <p>{{ exp.description }}</p>
+    </div>
+    </li>
+  </ul>
+</section>
