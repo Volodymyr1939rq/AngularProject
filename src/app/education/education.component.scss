@@ -1,0 +1,63 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles.scss' as *;
+
+  .job-line {
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 40px;
+  }
+
+  .green-line {
+    @include line(80px, 6px, #30978a, absolute, 2, 0);
+    display: inline-block;
+  }
+
+  .line {
+    @include line(100%, 3px, #333, absolute, 1, 2px);
+    display: inline-block;
+  }
+
+  .d-flex {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start; // Вирівнює дату та ступінь по одній лінії
+  }
+
+  .date {
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: $primary-color;
+    color: $white-color;
+    font-size: 14px;
+    font-weight: bold;
+    min-width: 120px;
+    text-align: center;
+    line-height: 1.5;
+    margin-right: 15px;
+    margin-top: 1.0rem;
+  }
+.degree-container{
+  display:flex;
+  flex-direction:column;
+}
+  h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    flex:1;
+  }
+
+  .company-name {
+    font-size: 1.6rem !important;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 2px;
+  }
+
+  .description {
+    font-size: 1.4rem;
+    line-height: 1.7;
+    margin-top: 10px;
+  }
+
+

@@ -1,0 +1,90 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles.scss' as *;
+
+.profile-card {
+  background-color: $text-color;
+  color: $white-color;
+  text-align: center;
+  padding: 20px 15px;
+  width: 410px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  height:450px;
+  position: relative;
+  margin-bottom: 60px;
+}
+.profile-image {
+  width: 215px;
+  height: 215px;
+  border-radius: 50%;
+  background-color:$white-color;
+  overflow: hidden;
+  margin-top: 45px;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.name{
+  font-size:40px;
+  text-transform: uppercase;
+}
+.job-title{
+  font-size: 17px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color:$white-color;
+  font-family: "Raleway Roman", serif;
+  text-align: center;
+  margin-top:-45px;
+}
+.profile-underline {
+  position: relative;
+  width: 290px;
+  height: 3px;
+  background-color:$white-color;
+  margin: -30px auto;
+
+.green-bar {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 3px;
+  background-color: $primary-color;
+}
+}
+.contact-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    background-color: $progress-bg;
+    padding: 15px 20px;
+    min-height: 60px;
+    position: relative;
+  }
+}
+.contact-icon {
+  color:$primary-color;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  margin-right: 15px;
+  position: relative;
+}

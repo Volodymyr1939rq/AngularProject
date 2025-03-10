@@ -5,9 +5,10 @@ import{CommonModule} from '@angular/common';
   selector: 'app-references',
   imports: [CommonModule],
   templateUrl: './references.component.html',
-  styleUrl: './references.component.css'
+  styleUrl: './references.component.scss'
 })
 export class ReferencesComponent {
+  showMore:boolean=false;
 references=[
   {
     name:'Darwin B.Magana',
@@ -22,4 +23,7 @@ references=[
     email:'www.yourwebsite.com'
   }
 ];
+toggleShowMore(){
+  this.showMore=!this.showMore;
+}
 }

@@ -1,0 +1,68 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles.scss' as *;
+
+.job-line{
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+.line {
+  @include line(100%, 3px, #333, absolute, 1, 2px);
+  display: inline-block;
+}
+.green-line {
+  @include line(80px, 6px, #30978a, absolute, 2, 0);
+  display: inline-block;
+}
+.reference-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.reference-list ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.reference-list li {
+  flex: 1;
+  max-width: 48%;
+  padding: 10px;
+
+}
+.reference-list li h2 {
+  margin-bottom: 10px;
+}
+
+.reference-list li p {
+  margin: 5px 0;
+}
+
+.Adress{
+  color:$primary-color !important;
+  font-size:1.6rem;
+  font-style:italic;
+  font-weight:bold;
+  margin-bottom:0;
+}
+.telefon-number{
+  font-size: 27px;
+  color: $secondary-color;
+  font-family: "Raleway Roman";
+  line-height: 1.2;
+}
+.Email{
+  font-size: 27px;
+  color:$secondary-color;
+  font-family: "Raleway Roman";
+  line-height: 1.2;
+}
+.reference-item p {
+  line-height: 1.4;
+  margin-bottom:6px;
+}

@@ -1,10 +1,19 @@
 <div class="profile-card">
   <div class="profile-image">
-    <img [src]="profile.image" [alt]="profile.name">
+    <img [ngSrc]="imageUrl" [alt]="name" width="215" height="215">
   </div>
-  <h2>{{profile.name}}</h2>
-  <p>{{profile.position}}</p>
+  <h2 class="name">{{ name }}</h2>
+  <p class="job-title">{{ jobTitle }}</p>
+
   <div class="profile-underline">
-    <div class="green-line"></div>
+    <div class="green-bar"></div>
+  </div>
+</div>
+
+<div class="contact-container">
+  <div class="contact-item" *ngFor="let contact of contacts">
+    <i class="contact-icon fa" [ngClass]="contact.icon"></i>
+    <div class="divider"></div>
+    <span class="contact-text">{{ contact.text }}</span>
   </div>
 </div>

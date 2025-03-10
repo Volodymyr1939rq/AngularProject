@@ -1,0 +1,22 @@
+@use './styles/variables' as *;
+@use './styles/mixins' as *;
+
+body {
+  @include reset;
+  font-family: 'Raleway', sans-serif;
+  color: $text-color;
+  background-color: $background-color;
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @include text;
+  }
+}

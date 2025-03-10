@@ -1,13 +1,23 @@
-<section>
-  <h1>Education</h1>
-  <ul>
-    <li *ngFor="let edu of education">
-      <div>
-        <span>{{edu.date}}</span>
-        <h2>{{edu.degree}}</h2>
-        <p>{{edu.university}}</p>
-        <p>{{edu.description}}</p>
+<section class="mb-5">
+  <h1 class="text-uppercase fw-bold">Education</h1>
+  <button class="toggle-btn" (click)="toggleShowMore()">
+    {{ showMore ? 'Show Less' : 'Show More' }} <span class="arrow">{{ showMore ? '▲' : '▼' }}</span>
+  </button>
+  <div class="job-line">
+    <span class="green-line"></span>
+    <span class="line"></span>
+  </div>
+  <ul class="list-unstyled education-list">
+    <li class="mb-4" *ngFor="let edu of education; let i = index" [class.hidden]="showMore ? false : i >= 1">
+      <div class="d-flex">
+        <span class="date">{{ edu.date }}</span>
+        <div class="degree-container">
+          <h2 class="fw-bold">{{ edu.degree }}</h2>
+          <p class="company-name">{{ edu.university }}</p>
+          <p class="description">{{ edu.description }}</p>
+        </div>
       </div>
+
     </li>
   </ul>
 </section>
