@@ -1,11 +1,29 @@
-<section>
-  <h1>Skills</h1>
-  <ul>
-    <li *ngFor="let skill of Skills">
-      <p>{{skill.name}}</p>
-      <div class="progress">
-        <div class="progress-bar" [style.width.%]="skill.level"></div>
+<section class="skills-section">
+  <h1 class="text-uppercase fw-bold">Skills</h1>
+  <div class="job-line">
+    <span class="green-line"></span>
+    <span class="line"></span>
+  </div>
+
+  <div class="skills-columns">
+    <div class="column">
+      <div class="skill-item mb-3" *ngFor="let skill of skillsLeft">
+        <p class="skill-name">{{ skill.name }}</p>
+        <div class="progress">
+          <div class="progress-bar" [style.width.%]="skill.level"></div>
+          <div class="progress-bar-end"></div>
+        </div>
       </div>
-    </li>
-  </ul>
+    </div>
+
+    <div class="column">
+      <div class="skill-item mb-3" *ngFor="let skill of skillsRight">
+        <p class="skill-name">{{ skill.name }}</p>
+        <div class="progress">
+          <div class="progress-bar" [style.width.%]="skill.level"></div>
+          <div class="progress-bar-end"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
