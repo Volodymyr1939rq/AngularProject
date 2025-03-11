@@ -1,12 +1,12 @@
 <section class="hobbies-section">
   <h1 class="text-uppercase fw-bold">Hobbies</h1>
-  <div class="Job-line">
+  <div class="job-line">
     <span class="green-line"></span>
     <span class="line"></span>
   </div>
 <div class="hobbies-container">
   <div class="hobby-item" *ngFor="let hobby of hobbies">
-    <i class="fa"[class]="hobby.icon"></i>
+    <i [ngClass]="hobby.icon" class="hobby-icon"></i>
     <p class="hobby-title">{{hobby.title}}></p>
   </div>
 </div>
