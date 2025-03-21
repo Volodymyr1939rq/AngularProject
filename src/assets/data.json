@@ -1,0 +1,58 @@
+{
+  "experiences": [
+    {
+      "date": "2020-Present",
+      "title": "Senior Web Designer",
+      "company": "Creative Agency",
+      "location": "Chicago",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer\n    took a galley of type and scrambled it to make a type specimen."
+    },
+    {
+      "date": "2015 - 2020",
+      "title": "Graphic Designer",
+      "company": "Creative Market",
+      "location": "United Kingdom",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer\n    took a galley of type and scrambled it to make a type specimen."
+    },
+    {
+      "date": "2013 - 2015",
+      "title": "Marketing Manager",
+      "company": "Marketing Agency",
+      "location": "United Kingdom",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen."
+    }
+  ],
+  "education": [
+    {
+      "date": "2013 - 2015",
+      "degree": "Master Degree Graduate",
+      "university": "Stanford University",
+      "description": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    },
+    {
+      "date": "2007 - 2010",
+      "degree": "Bachelor Degree",
+      "university": "Chicago University",
+      "description": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    }
+  ],
+  "references": [
+    {
+      "name": "Darwin B. Magana",
+      "address": "2813 Shobe Lane Mancos, CO.",
+      "phone": "+1-970-533-3393",
+      "email": "www.yourwebsite.com"
+    },
+    {
+      "name": "Robert J. Belvin",
+      "address": "2119 Fairfax Drive Newark, NJ.",
+      "phone": "+1-908-987-5103",
+      "email": "www.yourwebsite.com"
+    }
+  ],
+  "about": {
+    "aboutText": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    "quote": "“Lorem Ipsum is simply dummy text of the printing and typesetting industry.”",
+    "miniText": "It is a long established fact that a reader will be distracted by the readable content."
+  }
+}
