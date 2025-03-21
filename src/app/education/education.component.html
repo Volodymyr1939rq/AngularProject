@@ -1,14 +1,15 @@
 <section class="mb-5">
   <h1 class="text-uppercase fw-bold">Education</h1>
-  <button class="toggle-btn" (click)="toggleShowMore()">
-    {{ showMore ? 'Show Less' : 'Show More' }} <span class="arrow">{{ showMore ? '▲' : '▼' }}</span>
+  <button class="toggle-btn" (click)="toggleContent()">
+    {{ isContentVisible ? 'Show Less' : 'Show More' }} <span class="arrow">{{ isContentVisible ? '▲' : '▼' }}</span>
   </button>
   <div class="job-line">
     <span class="green-line"></span>
     <span class="line"></span>
   </div>
+  <div *ngIf="isContentVisible">
   <ul class="list-unstyled education-list">
-    <li class="mb-4" *ngFor="let edu of education; let i = index" [class.hidden]="showMore ? false : i >= 1">
+    <li class="mb-4" *ngFor="let edu of Education; let i = index">
       <div class="d-flex">
         <span class="date">{{ edu.date }}</span>
         <div class="degree-container">
@@ -17,7 +18,7 @@
           <p class="description">{{ edu.description }}</p>
         </div>
       </div>
-
     </li>
   </ul>
+  </div>
 </section>

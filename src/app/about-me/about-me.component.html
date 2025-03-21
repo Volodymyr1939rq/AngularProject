@@ -1,10 +1,15 @@
 <section class="about-me-section">
   <h1 class="text-uppercase fw-bold">About Me</h1>
-  <div class="Job-line">
+  <button class="toggle-btn" (click)="toggleContent()">
+    {{ isVisibleContent ? 'Show Less' : 'Show More' }} <span class="arrow">{{ isVisibleContent ? '▼' : '▲' }}</span>
+  </button>
+  <div class="job-line">
     <span class="green-line"></span>
     <span class="line"></span>
   </div>
-  <p>{{aboutText}}</p>
-  <p><strong>{{quote}}</strong></p>
-<p class="mini-text">{{miniText}}</p>
+  <div *ngIf="isVisibleContent">
+    <p class="Text">{{ AboutMe.aboutText }}</p>
+    <p class="black-text"><strong>{{ AboutMe.quote }}</strong></p>
+    <p class="mini-text">{{ AboutMe.miniText }}</p>
+  </div>
 </section>

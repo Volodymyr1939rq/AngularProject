@@ -2,6 +2,18 @@
 @use '../../styles/mixins' as *;
 @use '../../styles.scss' as *;
 
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-btn .arrow {
+  transition: transform 0.3s ease;
+}
   .job-line {
     position: relative;
     margin-top: 10px;

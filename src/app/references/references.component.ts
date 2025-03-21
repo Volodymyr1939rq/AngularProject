@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import{CommonModule} from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FileService} from '../services/data.service';
 
 @Component({
   selector: 'app-references',
@@ -7,23 +8,26 @@ import{CommonModule} from '@angular/common';
   templateUrl: './references.component.html',
   styleUrl: './references.component.scss'
 })
-export class ReferencesComponent {
-  showMore:boolean=false;
-references=[
-  {
-    name:'Darwin B.Magana',
-    address:'2813 Shobe Lane Mancos, CO.',
-    phone:'+1-970-533-3393',
-    email:'www.yourwebsite.com'
-  },
-  {
-    name:'Robert J.Belvin',
-    address:'2119 Fairfax Drive Newark, NJ.',
-    phone:'+1-908-987-5103',
-    email:'www.yourwebsite.com'
+export class ReferencesComponent implements OnInit {
+  References: any[] = [];
+
+  constructor(private fileService: FileService) {
   }
-];
-toggleShowMore(){
-  this.showMore=!this.showMore;
+
+  isContentVisible: boolean = false;
+
+  toggleContent(): void {
+    this.isContentVisible = !this.isContentVisible;
+  }
+
+  ngOnInit(): void {
+    this.fileService.getExperience().subscribe(
+      (data) => {
+        this.References = data.references || [];
+      },
+      (error) => {
+        console.error('Помилка', error);
+  }
+    )
 }
 }

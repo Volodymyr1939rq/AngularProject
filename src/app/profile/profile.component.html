@@ -12,7 +12,8 @@
 
 <div class="contact-container">
   <div class="contact-item" *ngFor="let contact of contacts">
-    <i class="contact-icon fa" [ngClass]="contact.icon"></i>
+    <!-- Використовуємо fa-icon для відображення іконок -->
+    <fa-icon [icon]="contact.icon" class="contact-icon"></fa-icon>
     <div class="divider"></div>
     <span class="contact-text">{{ contact.text }}</span>
   </div>

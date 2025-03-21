@@ -1,0 +1,61 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles.scss' as *;
+
+.job-line {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.green-line {
+  @include line(80px, 6px, #30978a, absolute, 2, 0);
+  display: inline-block;
+}
+
+.line {
+  @include line(110%, 3px, #333, absolute, 1, 2px);
+  display: inline-block;
+}
+
+.language-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 5px;
+  margin-top: 20px;
+
+  .languages-container {
+    margin-right: 5px;
+  }
+
+  .language-chart {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    margin: 0 auto;
+  }
+
+  .language-percentage {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: $text-color;
+    text-align: center;
+  }
+
+  .language-label {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: -12px;
+    font-weight: bold;
+  }
+}

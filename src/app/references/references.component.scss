@@ -7,6 +7,19 @@
   margin-top: 10px;
   margin-bottom: 40px;
 }
+
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-btn .arrow {
+  transition: transform 0.3s ease;
+}
 .line {
   @include line(100%, 3px, #333, absolute, 1, 2px);
   display: inline-block;

@@ -7,15 +7,15 @@
   color: $white-color;
   text-align: center;
   padding: 20px 15px;
-  width: 410px;
-  margin: 0 auto;
+  width: 600px !important;
+  max-width: 110%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
-  height:450px;
+  height: 450px; // Трохи збільшена висота для пропорційності
   position: relative;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 .profile-image {
   width: 215px;
@@ -42,14 +42,14 @@
   color:$white-color;
   font-family: "Raleway Roman", serif;
   text-align: center;
-  margin-top:-45px;
+  margin-top: -25px;
 }
 .profile-underline {
   position: relative;
   width: 290px;
   height: 3px;
   background-color:$white-color;
-  margin: -30px auto;
+  margin: -20px auto;
 
 .green-bar {
   position: absolute;
@@ -62,9 +62,9 @@
 }
 }
 .contact-container {
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
+  width: 110%;
   gap: 20px;
 
   .contact-item {
@@ -72,19 +72,37 @@
     align-items: center;
     background-color: $progress-bg;
     padding: 15px 20px;
-    min-height: 60px;
+    width: 100%;
+    max-width: 600px;
     position: relative;
   }
-}
-.contact-icon {
-  color:$primary-color;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  margin-right: 15px;
-  position: relative;
+
+  .contact-icon {
+    color: $primary-color;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    position: relative;
+  }
+
+  .divider {
+    width: 2px;
+    height: 100%;
+    background-color: $text-color;
+    position: absolute;
+    left: 60px;
+  }
+
+  .contact-text {
+    font-size: 1rem;
+    color: $text-color;
+    font-weight: bold;
+    margin: 0;
+    margin-left: 20px;
+  }
 }

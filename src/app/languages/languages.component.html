@@ -1,13 +1,17 @@
-<section class="language-section">
+<section class="mb-5">
   <h1 class="text-uppercase fw-bold">Languages</h1>
-  <div class="Job-line">
+  <div class="job-line">
     <span class="green-line"></span>
     <span class="line"></span>
   </div>
-<div class="language-container">
-  <div class="language-chart" *ngFor="let lang of languages">
-    <div class="language-percentage">{{lang.percentage}}</div>
-    <div class="language-label">{{lang.name}}</div>
+  <div class="language-section">
+    <div class="languages-container" *ngFor="let language of languages">
+      <div class="language-chart">
+        <canvas [id]="language.name + 'Chart'"></canvas>
+        <div class="language-percentage">{{ language.percentage }}%</div>
+        <div class="language-label">{{ language.name }}</div>
+      </div>
+    </div>
   </div>
-</div>
 </section>
+

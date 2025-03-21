@@ -1,28 +1,32 @@
 <div class="col-lg-8 col-md-12">
   <section class="job-experience mb-5">
     <h1 class="text-uppercase fw-bold">Job Experience</h1>
-    <button class="toggle-btn" (click)="toggleShowMore()">
-      {{ showMore ? 'Show Less' : 'Show More' }} <span class="arrow">{{ showMore ? '▼' : '▲' }}</span>
+    <button class="toggle-btn" (click)="toggleContent()">
+      {{ isContentVisible ? 'Show Less' : 'Show More' }}
+      <span class="arrow">{{ isContentVisible ? '▼' : '▲' }}</span>
     </button>
     <div class="job-line">
       <span class="green-line"></span>
       <span class="line"></span>
     </div>
-    <ul class="list-unstyled">
-      <li class="mb-4" *ngFor="let exp of experiences; let i = index" [class.hidden]="!showMore && i >= 2">
-        <div class="d-flex">
-          <span class="date">{{ exp.date }}</span>
-          <div class="job-title-container">
-            <h2 class="job-title">{{ exp.title }}</h2>
-            <div class="company-row">
-              <p class="company-name">{{ exp.company }}</p>
-              <p class="text-primary">{{ exp.location }}</p>
+    <div *ngIf="isContentVisible">
+      <ul class="list-unstyled">
+        <li class="mb-4" *ngFor="let exp of Experience">
+          <div class="d-flex">
+            <span class="date">{{ exp.date }}</span>
+            <div class="job-title-container">
+              <h2 class="job-title">{{ exp.title }}</h2>
+              <div class="company-row">
+                <p class="company-name">{{ exp.company }}</p>
+                <div class="location-position">
+                  <p class="text-primary">{{ exp.location }}</p>
+                </div>
+              </div>
+              <p class="description">{{ exp.description }}</p>
             </div>
-
-            <p class="description">{{ exp.description }}</p>
           </div>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </section>
 </div>

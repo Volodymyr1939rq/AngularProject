@@ -1,0 +1,54 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles.scss' as *;
+
+.about-me-section {
+  margin-top: 40px;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-btn .arrow {
+  transition: transform 0.3s ease;
+}
+
+.job-line {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.line {
+  @include line(110%, 3px, #333, absolute, 1, 2px);
+  display: inline-block;
+}
+
+.green-line {
+  @include line(80px, 6px, #30978a, absolute, 2, 0);
+  display: inline-block;
+}
+
+.Text {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  margin-bottom: 15px;
+}
+
+.black-text {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: $text-color;
+  margin-bottom: 15px;
+}
+
+.mini-text {
+  font-size: 1.1rem;
+  line-height: 1.4;
+}

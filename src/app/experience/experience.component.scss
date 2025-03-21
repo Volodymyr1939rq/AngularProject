@@ -10,7 +10,8 @@
   font-weight: bold;
  }
   p{
-    line-height:2.3;
+    line-height: 1.5;
+
   }
  .toggle-btn{
   background:none;
@@ -34,8 +35,8 @@
   }
   .d-flex{
     display: flex;
-    gap: 15px;
-    align-items:flex-start;
+    align-items: flex-start;
+    justify-content: space-between;
   }
   .date{
     display: inline-block;
@@ -51,7 +52,7 @@
     margin-top: 1.0rem;
   }
  .line {
-   @include line(100%, 3px, #333, absolute, 1, 2px);
+   @include line(150%, 3px, #333, absolute, 1, 2px);
    display: inline-block;
  }
 
@@ -59,13 +60,13 @@
     flex: 1;
   }
 
-  .company-row{
-    display:flex;
-    justify-content: space-between;
+  .company-row {
+    display: flex;
     align-items: center;
-    width:100%;
-
+    justify-content: space-between;
+    gap: 75%;
   }
+
   .job-title-container h2,
   .job-title-container p {
     margin: 5px;
@@ -82,19 +83,27 @@
     font-size: 1.6rem !important;
     font-style: italic;
     font-weight:bold;
-    margin-bottom: 5px;
-  }
-  .text-primary{
-    text-align: right;
-    color:$primary-color !important;
-    font-weight:bold;
-    font-style: italic;
-    margin:0;
+    margin-bottom: 0;
+    margin-right: auto;
     white-space: nowrap;
+  }
 
+  .location-position {
+    display: flex;
+    align-items: center;
+
+  }
+
+  .text-primary {
+    text-align: right;
+    font-weight: bold;
+    font-style: italic;
+    color: $primary-color !important;
+    white-space: nowrap;
   }
   .description {
     font-size: 1.4rem;
     line-height: 1.7;
   }
 }
+
