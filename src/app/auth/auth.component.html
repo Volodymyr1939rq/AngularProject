@@ -1,0 +1,18 @@
+<div class="auth-container">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <label>Email:</label>
+    <input type="email" formControlName="email" required />
+    <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+      Введіть коректний email
+    </div>
+
+    <label>Пароль:</label>
+    <input type="password" formControlName="password" required />
+    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+      Пароль має бути не менше 6 символів
+    </div>
+
+    <button type="submit" [disabled]="loginForm.invalid">Увійти</button>
+  </form>
+</div>
+
