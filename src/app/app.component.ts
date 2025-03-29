@@ -1,23 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {ExperienceComponent} from './experience/experience.component';
-import {EducationComponent} from './education/education.component';
-import {ReferencesComponent} from './references/references.component';
-import {SkillsComponent} from './skills/skills.component';
-import {ProfileComponent} from './profile/profile.component';
-import {AboutMeComponent} from './about-me/about-me.component';
-import {LanguagesComponent} from './languages/languages.component';
-import {HobbiesComponent} from './hobbies/hobbies.component';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {User} from './user.model';
 import {UserService} from './services/user.service';
-import {HttpClientModule} from '@angular/common/http';
 import {CommonModule} from '@angular/common';
-import {ReactiveFormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule, CommonModule, ExperienceComponent, EducationComponent, ReferencesComponent, SkillsComponent, ProfileComponent, AboutMeComponent, LanguagesComponent, HobbiesComponent],
+  imports: [RouterModule, ReactiveFormsModule, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

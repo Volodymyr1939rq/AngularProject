@@ -16,6 +16,7 @@ export class UserService {
 
   register(user: User): Observable<any> {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    console.log('Відправляються дані на сервер', user);
     return this.http.post<User>(this.apiUrl, user, {headers}).pipe(
       catchError((error: HttpErrorResponse) => {
         console.error('Error details: ', error);
@@ -24,6 +25,16 @@ export class UserService {
     );
   }
 
+  login(user: { email: string, password: string }): Observable<any> {
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    console.log('Метод login викликано з даними:', user);
+    return this.http.post('http://localhost:3000/login', user, {headers}).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Login error:', error);
+        return throwError(() => new Error('Помилка входу'));
+      })
+    );
+  }
   public getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.usersUrl).pipe(
       catchError((error: HttpErrorResponse) => {
@@ -31,5 +42,9 @@ export class UserService {
         return throwError(() => new Error('Помилка при отриманні користувачів'));
       })
     );
+  }
+
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('token');
   }
 }

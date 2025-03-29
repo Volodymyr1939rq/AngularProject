@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import{CommonModule} from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {FileService} from '../services/data.service';
 
 
 @Component({
   selector: 'app-experience',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.scss']

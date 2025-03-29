@@ -51,10 +51,11 @@
     margin-right: 15px;
     margin-top: 1.0rem;
   }
- .line {
-   @include line(150%, 3px, #333, absolute, 1, 2px);
-   display: inline-block;
- }
+
+  .line {
+    @include line(100%, 3px, #333, absolute, 1, 2px);
+    display: inline-block;
+  }
 
   .job-title-container{
     flex: 1;
@@ -62,19 +63,20 @@
 
   .company-row {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 75%;
+    gap: 2rem;
   }
 
   .job-title-container h2,
   .job-title-container p {
     margin: 5px;
   }
- .list-unstyled{
- padding:0;
-  list-style:none;
- }
+
+  .list-unstyled {
+    padding: 0;
+    list-style: none;
+  }
   .job-title {
     font-size: 1.8rem;
     font-weight: bold;
@@ -91,7 +93,7 @@
   .location-position {
     display: flex;
     align-items: center;
-
+    text-align: left;
   }
 
   .text-primary {

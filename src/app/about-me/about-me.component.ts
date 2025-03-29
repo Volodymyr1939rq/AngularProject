@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import{CommonModule} from '@angular/common';
+import {CommonModule} from '@angular/common';
 import {FileService} from '../services/data.service';
 
 @Component({
   selector: 'app-about-me',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './about-me.component.html',
   styleUrls: ['./about-me.component.scss']

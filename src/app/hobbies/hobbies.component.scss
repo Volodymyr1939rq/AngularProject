@@ -14,7 +14,7 @@
 }
 
 .line {
-  @include line(110%, 3px, #333, absolute, 1, 2px);
+  @include line(100%, 3px, #333, absolute, 1, 2px);
   display: inline-block;
 }
 
