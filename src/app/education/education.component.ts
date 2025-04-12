@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FileService} from '../services/data.service';
+
 
 @Component({
   selector: 'app-education',
@@ -13,18 +14,19 @@ export class EducationComponent implements OnInit {
   Education: any[] = [];
   isContentVisible: boolean = false;
 
-  constructor(private fileService: FileService) {
-  }
+  private fileService = inject(FileService)
 
   ngOnInit(): void {
-    this.fileService.getExperience().subscribe(
-      (data) => {
-        this.Education = data.education || [];
-      },
-      (error) => {
-        console.error('Помилка', error);
-      }
-    );
+    this.fileService.getExperience()
+
+      .subscribe({
+        next: (data) => {
+          this.Education = data.education || [];
+        },
+        error: (err) => {
+          console.error('Помилка', err);
+        }
+      });
   }
 
   toggleContent(): void {

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FileService} from '../services/data.service';
 
@@ -12,8 +12,8 @@ import {FileService} from '../services/data.service';
 export class AboutMeComponent implements OnInit {
   AboutMe: any = {};
 
-  constructor(private fileService: FileService) {
-  }
+  private fileService = inject(FileService)
+
 
   isVisibleContent: boolean = false;
 
@@ -22,13 +22,14 @@ export class AboutMeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fileService.getExperience().subscribe(
-      (data) => {
-        this.AboutMe = data.about || {};
+    this.fileService.getExperience()
+      .subscribe({
+        next: (data) => {
+          this.AboutMe = data.about || [];
       },
-      (error) => {
-        console.error('Помилка', error);
+        error: (err) => {
+          console.error('Помилка', err)
       }
-    )
+      });
   }
 }

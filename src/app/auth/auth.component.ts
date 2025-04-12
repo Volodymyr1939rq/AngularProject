@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import { Router } from '@angular/router';
-import { UserService } from '../services/user.service';
+import {Router} from '@angular/router';
+import {UserService} from '../services/user.service';
 import {NgIf} from '@angular/common';
 
 @Component({
@@ -35,7 +35,10 @@ export class AuthComponent {
         next: (response) => {
           console.log('Успішний вхід:', response);
           localStorage.setItem('token', response.token);
-          this.router.navigate(['/profile']);
+          this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+            this.router.navigate(['/profile']);
+          });
+
         },
         error: (err) => {
           console.error('Помилка входу:', err);

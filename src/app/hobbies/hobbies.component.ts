@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl} from '@angular/forms';
+import {AbstractControl, FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators} from '@angular/forms';
 import {UserService} from '../services/user.service';
 import {User} from '../user.model';
 
@@ -11,31 +11,38 @@ import {User} from '../user.model';
   templateUrl: './hobbies.component.html',
   styleUrls: ['./hobbies.component.scss']
 })
-export class HobbiesComponent {
-  public userForm: FormGroup;
+export class HobbiesComponent implements OnInit {
   users: User[] = [];
 
-  constructor(private fb: FormBuilder, private userService: UserService) {
-    this.userForm = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
-    }, {validator: this.passwordMatchValidator});
+  private fb = inject(NonNullableFormBuilder);
+  private userService = inject(UserService);
 
+  public userForm: FormGroup = this.fb.group(
+    {
+      username: this.fb.control('', [Validators.required, Validators.minLength(3)]),
+      email: this.fb.control('', [Validators.required, Validators.email]),
+      password: this.fb.control('', [Validators.required, Validators.minLength(6)]),
+      confirmPassword: this.fb.control('', [Validators.required, Validators.minLength(6)]),
+    },
+    {
+      validators: this.passwordMatchValidator
+    }
+  );
+
+  ngOnInit(): void {
     this.loadUsers();
   }
 
-  loadUsers(): void {
+  private loadUsers(): void {
     this.userService.getUsers().subscribe({
       next: (users: User[]) => (this.users = users),
       error: (error: any) => console.error('Помилка при завантажуванні користувачів:', error)
     });
   }
 
-  passwordMatchValidator(group: FormGroup): { [key: string]: boolean } | null {
-    const password = group.get('password')?.value;
-    const confirmPassword = group.get('confirmPassword')?.value;
+  passwordMatchValidator(form: AbstractControl): { [key: string]: boolean } | null {
+    const password = form.get('password')?.value;
+    const confirmPassword = form.get('confirmPassword')?.value;
     return password === confirmPassword ? null : {passwordMismatch: true};
   }
 
@@ -55,14 +62,9 @@ export class HobbiesComponent {
     return this.userForm.get('confirmPassword');
   }
 
-  onSubmit(): void {
+  public onSubmit(): void {
     if (this.userForm.valid) {
-      const newUser: User = {
-        username: this.userForm.value.username,
-        email: this.userForm.value.email,
-        password: this.userForm.value.password,
-        confirmPassword: this.userForm.value.confirmPassword
-      };
+      const newUser: User = this.userForm.getRawValue();
 
       this.userService.register(newUser).subscribe({
         next: () => {

@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  angular:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+
+  backend:
+    build:
+      context: .
+      dockerfile: server/Dockerfile.server
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    depends_on:
+      - angular

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FileService} from '../services/data.service';
 
@@ -13,8 +13,8 @@ import {FileService} from '../services/data.service';
 export class ExperienceComponent implements OnInit {
   Experience: any[] = [];
 
-  constructor(private fileService: FileService) {
-  }
+  private fileService = inject(FileService)
+
 
   isContentVisible = false;
 
@@ -23,13 +23,15 @@ export class ExperienceComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fileService.getExperience().subscribe(
-      (data) => {
-        this.Experience = data.experiences || [];
-      },
-      (error) => {
-        console.error('Помилка', error);
-      }
-    );
+    this.fileService.getExperience()
+      .subscribe({
+        next: (data) => {
+          this.Experience = data.experiences || [];
+        },
+        error: (err) => {
+          console.error('Помилка:', err);
+        }
+      });
   }
+
 }

@@ -11,7 +11,10 @@ const users: any = [];
 app.get('/', (req, res) => {
   res.send('Сервер працює!');
 });
-
+app.post('/experience', (req, res) => {
+  console.log('Дані отримано', req.body);
+  res.status(200).json({message: 'Дані успішно отримані'});
+})
 app.post('/register', (req, res) => {
   const {username, email, password} = req.body;
 
@@ -24,19 +27,19 @@ app.post('/register', (req, res) => {
     res.status(400).json({error: 'Помилка: Не всі дані заповнені.'});
   }
 });
-
+app.post('/login', (req, res) => {
+  const {email, password} = req.body;
+  const user = users.find((u: any) => u.email === email && u.password === password);
+  if (user) {
+    res.status(200).json({message: 'Успішний вхід', token: 'fake-jwt-token'});
+  } else {
+    res.status(401).json({error: 'Невірний email або password'});
+  }
+});
 app.get('/users', (req, res) => {
   res.json(users);
 });
-app.post('/login', (req, res) => {
-  const {email, password} = req.body;
-  const user = users.find((u: { email: any; password: any; }) => u.email === email && u.password === password);
-  if (user) {
-    res.json({token: 'mock-token'});
-  } else {
-    res.status(401).json({message: 'невірний email або password'});
-  }
-});
+
 users.push({username: 'testuser', email: 'test@example.com', password: '123456'});
 console.log('Тестовий користувач створений:', users);
 app.listen(PORT, () => {

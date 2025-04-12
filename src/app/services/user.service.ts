@@ -10,7 +10,7 @@ import {catchError, Observable, throwError} from 'rxjs';
 export class UserService {
   apiUrl = 'http://localhost:3000/register';
   usersUrl = 'http://localhost:3000/users';
-
+  loginUrl = 'http://localhost:3000/login';
   constructor(private http: HttpClient) {
   }
 
@@ -28,7 +28,7 @@ export class UserService {
   login(user: { email: string, password: string }): Observable<any> {
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
     console.log('Метод login викликано з даними:', user);
-    return this.http.post('http://localhost:3000/login', user, {headers}).pipe(
+    return this.http.post<User>(this.loginUrl, user, {headers}).pipe(
       catchError((error: HttpErrorResponse) => {
         console.error('Login error:', error);
         return throwError(() => new Error('Помилка входу'));

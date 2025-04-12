@@ -1,4 +1,4 @@
-<nav class="nav justify-content-center p-3">
+<nav *ngIf="islogged" class="nav justify-content-center p-3">
   <a class="btn btn-primary m-1" routerLink="/profile">Profile</a>
   <a class="btn btn-secondary m-1" routerLink="/about-me">About Me</a>
   <a class="btn btn-success m-1" routerLink="/education">Education</a>
@@ -9,5 +9,5 @@
   <a class="btn btn-light m-1" routerLink="/skills">Skills</a>
 </nav>
 
-<!-- Динамічний контент -->
+
 <router-outlet></router-outlet>
